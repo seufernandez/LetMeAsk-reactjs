@@ -66,9 +66,18 @@ $Pink-mainColor: #e559f9;
         align-self: center;
     }
     h2{
+
+    }
+
+    h2{
         font-size: 24px;
         font-family: 'Poppins', sans-serif;
-        margin: 64px 0 24px;
+        margin: 48px 0 24px;
+    }
+
+    h1{
+        font-size: 44px;
+        color: $Pink-mainColor;
     }
     
 
