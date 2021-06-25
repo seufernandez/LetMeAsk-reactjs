@@ -11,8 +11,11 @@ $background-mainColor: #29292e;
 
 $Google-redColor: #ea4335;
 
+$DarkenPurple-mainColor: #4220a7;
 $Purple-mainColor: #835afd;
 $LightenPurple-mainColor: #b69eff;
+
+$Disabled-Icon: #737380;
 
 .question {
   background: #494949;
@@ -20,10 +23,53 @@ $LightenPurple-mainColor: #b69eff;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
   padding: 24px;
 
+
+    // icone de highlight SEM HIGHLIGHT
+    footer .children .highlight-button-icon  {
+      stroke: $Disabled-Icon 
+    }
+    // icone de answerrrrrrr SEM HIGHLIGHT
+    footer .children .answer-button-icon  {
+      stroke: $Disabled-Icon 
+    }
+
+
   & + .question {
     margin-top: 8px;
   }
-
+  
+  &.highlighted {
+    border: #835afd 2px solid;
+    background: #835afd6e;
+    
+    
+    footer .user-info span {
+      color: #c2c2d0; 
+    }
+    
+    // icone de highlight
+    footer .children .highlight-button-icon  {
+      stroke: $LightenPurple-mainColor; 
+      fill: $Google-redColor;
+    }
+  }
+  
+    &.answered {
+      border: #737380 dashed 1px;
+      filter: brightness(0.6);
+      // background: #383838;
+      // //Texto da pergunta
+      // p{
+      //   color: #5c5a5a;
+      // }
+  
+      // icone de answer
+      footer .children .answer-button-icon  {
+        stroke: $LightenPurple-mainColor; 
+      }
+  
+    }
+  
   p {
     color: $Appmain-white;
   }
@@ -44,6 +90,7 @@ $LightenPurple-mainColor: #b69eff;
         border-radius: 50%;
       }
 
+      //nome do user
       span {
         margin-left: 8px;
         color: $LightenGrey-mainColor;
@@ -51,6 +98,13 @@ $LightenPurple-mainColor: #b69eff;
       }
     }
 
+    //iconess
+    > div {
+      display: flex;
+      gap: 8px;
+    }
+
+    //icone em si
     button {
       border: 0;
       background: transparent;
@@ -74,6 +128,7 @@ $LightenPurple-mainColor: #b69eff;
 
           svg {
             fill: #835afd;
+            
           }
         }
       }
