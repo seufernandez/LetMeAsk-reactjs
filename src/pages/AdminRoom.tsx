@@ -5,8 +5,7 @@ import cx from 'classnames';
 
 import logoImg from '../assets/images/logo.svg';
 import deleteImg from '../assets/images/delete.svg';
-import checkImg from '../assets/images/check.svg';
-import answerImg from '../assets/images/answer.svg';
+
 
 import { Question } from '../components/Question';
 import { Button } from '../components/Button';
@@ -69,7 +68,6 @@ export function AdminRoom() {
             <Button isOutlinedRed onClick={handleEndRoom}>
               Close Room
             </Button>
-            {/* <Link to="rooms/"></Link> */}
           </div>
         </div>
       </header>

@@ -1,5 +1,5 @@
 import { FormEvent, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 import logoImg from '../assets/images/logo.svg';
 
@@ -17,7 +17,9 @@ type RoomParams = {
 };
 
 export function Room() {
-  const { user } = useAuth();
+  const history = useHistory();
+
+  const { user, signInWithGoogle } = useAuth();
 
   const params = useParams<RoomParams>();
 
@@ -26,6 +28,17 @@ export function Room() {
   const roomId = params.id;
 
   const { title, questions } = useRoom(roomId);
+
+
+
+  async function handleLogin() {
+    if (!user) {
+      await signInWithGoogle();
+    }
+
+    history.push(`/rooms/${roomId}`);
+  }
+
 
   async function handleSendQuestion(event: FormEvent) {
     event.preventDefault();
@@ -77,11 +90,15 @@ export function Room() {
           <h1>{title}</h1>
           {questions.length > 0 && <span>{questions.length} questions</span>}
         </div>
-        <form onSubmit={handleSendQuestion}>
+        <form 
+        onSubmit={handleSendQuestion}
+        >
           <textarea
             placeholder="Type your best question :)"
             onChange={event => setNewQuestion(event.target.value)}
             value={newQuestion}
+            disabled={!user}
+
           />
           <div className="form-footer">
             {user ? (
@@ -92,7 +109,7 @@ export function Room() {
             ) : (
               <span>
                 {' '}
-                Want to ask something? <button>Log In here!</button>
+                Want to ask something? <button onClick={handleLogin} >Log In here!</button>
               </span>
             )}
             <Button type="submit" disabled={!user}>
