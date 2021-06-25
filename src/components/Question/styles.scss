@@ -1,0 +1,86 @@
+$Appmain-white: #f8f8f8;
+$Appmain-whiteDetail: #fefefe;
+
+$Grey-mainColor: #737380;
+$LightenGrey-mainColor: #afafbd;
+
+$Pink-mainColor: #e559f9;
+$LightenPink-mainColor: #f28fff;
+
+$background-mainColor: #29292e;
+
+$Google-redColor: #ea4335;
+
+$Purple-mainColor: #835afd;
+$LightenPurple-mainColor: #b69eff;
+
+.question {
+  background: #494949;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  padding: 24px;
+
+  & + .question {
+    margin-top: 8px;
+  }
+
+  p {
+    color: $Appmain-white;
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+
+    .user-info {
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+      }
+
+      span {
+        margin-left: 8px;
+        color: $LightenGrey-mainColor;
+        font-size: 14px;
+      }
+    }
+
+    button {
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+
+      transition: filter 0.2s;
+
+      &.like-button {
+        display: flex;
+        align-items: flex-end;
+        color: #737380;
+
+        gap: 4px;
+
+        svg {
+          size: 77px;
+        }
+
+        &.liked {
+          color: #835afd;
+
+          svg {
+            fill: #835afd;
+          }
+        }
+      }
+
+      &:hover {
+        filter: brightness(1.3);
+      }
+    }
+  }
+}
